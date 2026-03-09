@@ -29,7 +29,7 @@ index 8421b70c..0cd307eb 100644
  ```
  
 diff --git b/content/docs/bundler/fullstack.mdx a/content/docs/bundler/fullstack.mdx
-index c72fc14b..70a3e880 100644
+index c24cb3a2..de6b1e00 100644
 --- b/content/docs/bundler/fullstack.mdx
 +++ a/content/docs/bundler/fullstack.mdx
 @@ -123,7 +123,7 @@ Becomes something like this:
@@ -41,14 +41,14 @@ index c72fc14b..70a3e880 100644
  import dashboard from "../public/dashboard.html";
  import { serve } from "bun";
  
-@@ -138,7 +138,7 @@ return new Response("hello world");
+@@ -138,7 +138,7 @@ serve({
  });
  ```
  
 -```tsx title="src/frontend.tsx"
 +```tsx tab="src/frontend.tsx"
- import { createRoot } from 'react-dom/client';
- import App from './app';
+ import { createRoot } from "react-dom/client";
+ import App from "./app";
  
 @@ -147,7 +147,7 @@ const root = createRoot(container!);
  root.render(<App />);
@@ -2809,10 +2809,10 @@ index 934c4f43..1d1913cc 100644
  <html>
    <body>
 diff --git b/content/docs/runtime/http/server.mdx a/content/docs/runtime/http/server.mdx
-index a81f3991..43b41baa 100644
+index a5c85b3c..17775911 100644
 --- b/content/docs/runtime/http/server.mdx
 +++ a/content/docs/runtime/http/server.mdx
-@@ -475,7 +475,7 @@ export interface Post {
+@@ -502,7 +502,7 @@ export interface Post {
  
  ## Reference
  
@@ -2861,7 +2861,7 @@ index d763f366..4fd4251c 100644
  ```
  
 diff --git b/content/docs/runtime/markdown.mdx a/content/docs/runtime/markdown.mdx
-index 061a4211..ae8a3c4f 100644
+index 684a7d12..b0d5d2f5 100644
 --- b/content/docs/runtime/markdown.mdx
 +++ a/content/docs/runtime/markdown.mdx
 @@ -3,8 +3,8 @@ title: Markdown
