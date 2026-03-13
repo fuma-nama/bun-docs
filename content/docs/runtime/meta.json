@@ -62,6 +62,7 @@
     "secrets",
     "console",
     "markdown",
+    "toml",
     "yaml",
     "json5",
     "jsonl",
