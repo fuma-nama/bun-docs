@@ -182,18 +182,18 @@ When the cron daemon fires the job, Bun imports your module and calls the `sched
 **Viewing registered jobs:**
 
 ```sh
-crontab -l
+$ crontab -l
 ```
 
 **Logs:** On Linux, cron output goes to the system log. Check with:
 
 ```sh
 # systemd-based (Ubuntu, Fedora, Arch, etc.)
-journalctl -u cron       # or crond on some distros
-journalctl -u cron --since "1 hour ago"
+$ journalctl -u cron       # or crond on some distros
+$ journalctl -u cron --since "1 hour ago"
 
 # syslog-based (older systems)
-grep CRON /var/log/syslog
+$ grep CRON /var/log/syslog
 ```
 
 To capture stdout/stderr to a file, redirect output in the crontab entry directly, or add logging inside your `scheduled()` handler.
@@ -203,10 +203,10 @@ To capture stdout/stderr to a file, redirect output in the crontab entry directl
 ```sh
 # Edit your crontab and remove the "# bun-cron: <title>" comment
 # and the command line below it
-crontab -e
+$ crontab -e
 
 # Or remove ALL bun cron jobs at once by filtering them out:
-crontab -l | grep -v "# bun-cron:" | grep -v "\-\-cron-title=" | crontab -
+$ crontab -l | grep -v "# bun-cron:" | grep -v "\-\-cron-title=" | crontab -
 ```
 
 ### macOS
@@ -222,7 +222,7 @@ The plist uses `StartCalendarInterval` to define the schedule. Complex patterns 
 **Viewing registered jobs:**
 
 ```sh
-launchctl list | grep bun.cron
+$ launchctl list | grep bun.cron
 ```
 
 **Logs:** stdout and stderr are written to:
@@ -235,7 +235,7 @@ launchctl list | grep bun.cron
 For example, a job titled `weekly-report`:
 
 ```sh
-cat /tmp/bun.cron.weekly-report.stdout.log
+$ cat /tmp/bun.cron.weekly-report.stdout.log
 tail -f /tmp/bun.cron.weekly-report.stderr.log
 ```
 
@@ -243,14 +243,14 @@ tail -f /tmp/bun.cron.weekly-report.stderr.log
 
 ```sh
 # Unload the job from launchd
-launchctl bootout gui/$(id -u)/bun.cron.<title>
+$ launchctl bootout gui/$(id -u)/bun.cron.<title>
 
 # Delete the plist file
 $ rm ~/Library/LaunchAgents/bun.cron.<title>.plist
 
 # Example for a job titled "weekly-report":
-launchctl bootout gui/$(id -u)/bun.cron.weekly-report
-rm ~/Library/LaunchAgents/bun.cron.weekly-report.plist
+$ launchctl bootout gui/$(id -u)/bun.cron.weekly-report
+$ rm ~/Library/LaunchAgents/bun.cron.weekly-report.plist
 ```
 
 ### Windows
