@@ -2683,7 +2683,7 @@ index 93f16aba..144a7c3e 100644
  
  Configure the output stream by passing one of the following values to `stdout/stderr`:
 diff --git b/content/docs/runtime/cron.mdx a/content/docs/runtime/cron.mdx
-index e211ab82..6ee337f7 100644
+index cf83ac91..5950804e 100644
 --- b/content/docs/runtime/cron.mdx
 +++ a/content/docs/runtime/cron.mdx
 @@ -182,18 +182,18 @@ When the cron daemon fires the job, Bun imports your module and calls the `sched
