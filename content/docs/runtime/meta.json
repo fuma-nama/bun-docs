@@ -9,6 +9,7 @@
     "../installation",
     "../quickstart",
     "../typescript",
+    "../typescript-6",
     "templating/init",
     "templating/create",
     "---[Cog] Core Runtime---",

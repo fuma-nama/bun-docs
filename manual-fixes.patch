@@ -3401,7 +3401,7 @@ index 709c7de2..a0dc0080 100644
  
  ### Environment Detection
 diff --git b/content/docs/typescript.mdx a/content/docs/typescript.mdx
-index 2c6a54e5..5f36440b 100644
+index 862870fc..ad639115 100644
 --- b/content/docs/typescript.mdx
 +++ a/content/docs/typescript.mdx
 @@ -5,8 +5,8 @@ description: Using TypeScript with Bun, including type definitions and compiler
@@ -3481,7 +3481,7 @@ index 42c32b11..646668be 100644
      	Successfully authenticated with registry.digitalocean.com
      	```
 diff --git b/content/guides/deployment/google-cloud-run.mdx a/content/guides/deployment/google-cloud-run.mdx
-index 05a12246..fbb60d22 100644
+index 2342d801..b6ca1866 100644
 --- b/content/guides/deployment/google-cloud-run.mdx
 +++ a/content/guides/deployment/google-cloud-run.mdx
 @@ -20,14 +20,16 @@ In this guide, we will deploy a Bun HTTP server to Google Cloud Run using a `Doc
@@ -3536,7 +3536,7 @@ index 05a12246..fbb60d22 100644
  ```
  
  <Callout type="info">  
-@@ -132,8 +134,7 @@ CMD ["bun", "index.ts"]
+@@ -131,8 +133,7 @@ CMD ["bun", "index.ts"]
  <Callout type="info">
    Make sure that the start command corresponds to your application's entry point. This can also be `CMD ["bun", "run", "start"]` if you have a start script in your `package.json`.
  
@@ -3546,7 +3546,7 @@ index 05a12246..fbb60d22 100644
  </Callout>
  
  Create a new `.dockerignore` file in the root of your project. This file contains the files and directories that should be _excluded_ from the container image, such as `node_modules`. This makes your builds faster and smaller:
-@@ -163,7 +164,7 @@ Make sure you're in the directory containing your `Dockerfile`, then deploy dire
+@@ -162,7 +163,7 @@ Make sure you're in the directory containing your `Dockerfile`, then deploy dire
  </Callout>
  
  ```bash title="terminal"
