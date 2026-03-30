@@ -2522,7 +2522,7 @@ index 3c4c30ea..c6dc54d1 100644
  
  ## Troubleshooting
 diff --git b/content/docs/project/contributing.mdx a/content/docs/project/contributing.mdx
-index 793c3b6c..257e66fc 100644
+index 79f8ed5d..b9df6728 100644
 --- b/content/docs/project/contributing.mdx
 +++ a/content/docs/project/contributing.mdx
 @@ -12,7 +12,7 @@ If you are using Windows, please refer to [this guide](/docs/project/building-wi
