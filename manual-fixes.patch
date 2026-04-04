@@ -1,5 +1,5 @@
 diff --git b/content/docs/bundler/esbuild.mdx a/content/docs/bundler/esbuild.mdx
-index e3a9a9e2..245adda0 100644
+index b9845712..44cfbf50 100644
 --- b/content/docs/bundler/esbuild.mdx
 +++ a/content/docs/bundler/esbuild.mdx
 @@ -30,7 +30,7 @@ Bun and esbuild both provide a command-line interface.
@@ -12,7 +12,7 @@ index e3a9a9e2..245adda0 100644
  # bun
  $ bun build <entrypoint> --outdir=out
 diff --git b/content/docs/bundler/executables.mdx a/content/docs/bundler/executables.mdx
-index 8421b70c..0cd307eb 100644
+index c72c6093..6f7584be 100644
 --- b/content/docs/bundler/executables.mdx
 +++ a/content/docs/bundler/executables.mdx
 @@ -498,10 +498,10 @@ you shouldn't see this
@@ -29,7 +29,7 @@ index 8421b70c..0cd307eb 100644
  ```
  
 diff --git b/content/docs/bundler/fullstack.mdx a/content/docs/bundler/fullstack.mdx
-index c24cb3a2..de6b1e00 100644
+index 50fb209d..357f624a 100644
 --- b/content/docs/bundler/fullstack.mdx
 +++ a/content/docs/bundler/fullstack.mdx
 @@ -123,7 +123,7 @@ Becomes something like this:
@@ -87,7 +87,7 @@ index c24cb3a2..de6b1e00 100644
    margin: 0;
    padding: 0;
 diff --git b/content/docs/bundler/html-static.mdx a/content/docs/bundler/html-static.mdx
-index 87c46dfc..5c92dd6b 100644
+index 4a5b970d..2c9bb61f 100644
 --- b/content/docs/bundler/html-static.mdx
 +++ a/content/docs/bundler/html-static.mdx
 @@ -22,9 +22,7 @@ To get started, pass HTML files to `bun`.
@@ -251,27 +251,9 @@ index 87c46dfc..5c92dd6b 100644
  <Callout type="warning">
    Currently, plugins are only supported through `Bun.build`'s API or through `bunfig.toml` with the frontend dev server
 diff --git b/content/docs/bundler/index.mdx a/content/docs/bundler/index.mdx
-index 8c00e68b..f05db05b 100644
+index dbcc5aaf..494e6551 100644
 --- b/content/docs/bundler/index.mdx
 +++ a/content/docs/bundler/index.mdx
-@@ -55,7 +55,7 @@ Let's jump into the bundler API.
- 
- Let's build our first bundle. You have the following two files, which implement a simple client-side rendered React app.
- 
--```tsx tab="index.tsx"
-+```tsx title="index.tsx"
- import * as ReactDOM from "react-dom/client";
- import { Component } from "./Component";
- 
-@@ -63,7 +63,7 @@ const root = ReactDOM.createRoot(document.getElementById("root")!);
- root.render(<Component message="Sup!" />);
- ```
- 
--```tsx tab="Component.tsx"
-+```tsx title="Component.tsx"
- export function Component(props: { message: string }) {
-   return <h1>{props.message}</h1>;
- }
 @@ -77,8 +77,8 @@ To create our bundle:
    <Tab value="JavaScript">
      ```ts title="build.ts"
@@ -492,21 +474,6 @@ index 8c00e68b..f05db05b 100644
     ```
    </Tab>
  </Tabs>
-@@ -1053,12 +1088,12 @@ In many cases, generated bundles will contain no import statements. After all, t
- In any of these cases, the final bundles may contain paths to other files. By default these imports are relative. Here is an example of a simple asset import:
- 
- ```ts tab="Input"
--import logo from "./logo.svg";
-+import logo from './logo.svg';
- console.log(logo);
- ```
- 
- ```ts tab="Output"
--var logo = "./logo-a7305bdef.svg";
-+var logo = './logo-a7305bdef.svg';
- console.log(logo);
- ```
- 
 @@ -1475,44 +1510,39 @@ return new Response(artifact);
  
  The Bun runtime implements special pretty-printing of `BuildArtifact` object to make debugging easier.
@@ -1650,7 +1617,7 @@ index aaedb143..9d687f61 100644
  
  const myFunction = () => {
 diff --git b/content/docs/bundler/plugins.mdx a/content/docs/bundler/plugins.mdx
-index 42498510..34548ffd 100644
+index b85954ab..a24e1dcf 100644
 --- b/content/docs/bundler/plugins.mdx
 +++ a/content/docs/bundler/plugins.mdx
 @@ -341,7 +341,7 @@ To create a native plugin, you must export a C ABI function which matches the si
@@ -2397,7 +2364,7 @@ index 4509e5b9..5e448032 100644
  
  Bun's package manager can scan packages for security vulnerabilities before installation, helping protect your applications from supply chain attacks and known vulnerabilities.
 diff --git b/content/docs/project/building-windows.mdx a/content/docs/project/building-windows.mdx
-index 3c4c30ea..c6dc54d1 100644
+index 53b22b91..71f9732b 100644
 --- b/content/docs/project/building-windows.mdx
 +++ a/content/docs/project/building-windows.mdx
 @@ -14,7 +14,7 @@ It is strongly recommended to use [PowerShell 7 (`pwsh.exe`)](https://learn.micr
@@ -2429,7 +2396,7 @@ index 3c4c30ea..c6dc54d1 100644
  After Visual Studio, you need the following:
 @@ -47,19 +47,19 @@ After Visual Studio, you need the following:
  
- [Scoop](https://scoop.sh) can be used to install these remaining tools easily.
+ Use [Scoop](https://scoop.sh) to install these remaining tools.
  
 -```ps1 Scoop (x64)
 -irm https://get.scoop.sh | iex
@@ -2562,7 +2529,7 @@ index 79f8ed5d..b9df6728 100644
  
  ### Cannot find `libatomic.a`
 diff --git b/content/docs/quickstart.mdx a/content/docs/quickstart.mdx
-index f7516c86..f718a3ff 100644
+index 805030ba..24347a1f 100644
 --- b/content/docs/quickstart.mdx
 +++ a/content/docs/quickstart.mdx
 @@ -26,7 +26,6 @@ Build a minimal HTTP server with `Bun.serve`, run it locally, then evolve it by
@@ -2581,21 +2548,13 @@ index f7516c86..f718a3ff 100644
      Hello via Bun!
      ```
  
-@@ -77,14 +75,13 @@ Build a minimal HTTP server with `Bun.serve`, run it locally, then evolve it by
+@@ -77,7 +75,6 @@ Build a minimal HTTP server with `Bun.serve`, run it locally, then evolve it by
  
      ```bash title="terminal"
      $ bun run index.ts
 -    
      Listening on http://localhost:3000
      ```
- 
-     Visit [`http://localhost:3000`](http://localhost:3000) to test the server. You should see a simple page that says `"Bun!"`.
- 
-     <Accordions type="single">
--<Accordion title="Seeing TypeScript errors on Bun?">
-+    <Accordion title="Seeing TypeScript errors on Bun?">
- 
-       If you used `bun init`, Bun will have automatically installed Bun's TypeScript declarations and configured your `tsconfig.json`. If you're trying out Bun in an existing project, you may see a type error on the `Bun` global.
  
 @@ -112,7 +109,7 @@ Build a minimal HTTP server with `Bun.serve`, run it locally, then evolve it by
        ```
@@ -2683,10 +2642,10 @@ index 93f16aba..144a7c3e 100644
  
  Configure the output stream by passing one of the following values to `stdout/stderr`:
 diff --git b/content/docs/runtime/cron.mdx a/content/docs/runtime/cron.mdx
-index cf83ac91..5950804e 100644
+index 49796025..315383b7 100644
 --- b/content/docs/runtime/cron.mdx
 +++ a/content/docs/runtime/cron.mdx
-@@ -182,18 +182,18 @@ When the cron daemon fires the job, Bun imports your module and calls the `sched
+@@ -266,18 +266,18 @@ When the cron daemon fires the job, Bun imports your module and calls the `sched
  **Viewing registered jobs:**
  
  ```sh
@@ -2709,7 +2668,7 @@ index cf83ac91..5950804e 100644
  ```
  
  To capture stdout/stderr to a file, redirect output in the crontab entry directly, or add logging inside your `scheduled()` handler.
-@@ -203,10 +203,10 @@ To capture stdout/stderr to a file, redirect output in the crontab entry directl
+@@ -287,10 +287,10 @@ To capture stdout/stderr to a file, redirect output in the crontab entry directl
  ```sh
  # Edit your crontab and remove the "# bun-cron: <title>" comment
  # and the command line below it
@@ -2722,7 +2681,7 @@ index cf83ac91..5950804e 100644
  ```
  
  ### macOS
-@@ -222,7 +222,7 @@ The plist uses `StartCalendarInterval` to define the schedule. Complex patterns
+@@ -306,7 +306,7 @@ The plist uses `StartCalendarInterval` to define the schedule. Complex patterns
  **Viewing registered jobs:**
  
  ```sh
@@ -2731,7 +2690,7 @@ index cf83ac91..5950804e 100644
  ```
  
  **Logs:** stdout and stderr are written to:
-@@ -235,22 +235,22 @@ launchctl list | grep bun.cron
+@@ -319,22 +319,22 @@ launchctl list | grep bun.cron
  For example, a job titled `weekly-report`:
  
  ```sh
@@ -2760,7 +2719,7 @@ index cf83ac91..5950804e 100644
  
  ### Windows
 diff --git b/content/docs/runtime/debugger.mdx a/content/docs/runtime/debugger.mdx
-index 415c9d7e..20966461 100644
+index 5d65b594..17abb2c9 100644
 --- b/content/docs/runtime/debugger.mdx
 +++ a/content/docs/runtime/debugger.mdx
 @@ -22,9 +22,7 @@ To enable debugging when running code with Bun, use the `--inspect` flag. This a
@@ -2820,7 +2779,7 @@ index 415c9d7e..20966461 100644
      at myInner (file.js:4:15)
      at fn (file.js:8:5)
 diff --git b/content/docs/runtime/environment-variables.mdx a/content/docs/runtime/environment-variables.mdx
-index 4248e089..71c7c3ef 100644
+index bafdcbb1..a0ebf1bc 100644
 --- b/content/docs/runtime/environment-variables.mdx
 +++ a/content/docs/runtime/environment-variables.mdx
 @@ -29,7 +29,7 @@ $ FOO=helloworld bun run dev
@@ -2886,7 +2845,7 @@ index 934c4f43..1d1913cc 100644
  <html>
    <body>
 diff --git b/content/docs/runtime/http/server.mdx a/content/docs/runtime/http/server.mdx
-index a5c85b3c..17775911 100644
+index 62c93330..2dda6d9a 100644
 --- b/content/docs/runtime/http/server.mdx
 +++ a/content/docs/runtime/http/server.mdx
 @@ -502,7 +502,7 @@ export interface Post {
@@ -2899,7 +2858,7 @@ index a5c85b3c..17775911 100644
    /**
     * Stop the server from accepting new connections.
 diff --git b/content/docs/runtime/http/websockets.mdx a/content/docs/runtime/http/websockets.mdx
-index 53b05928..7626ec07 100644
+index ddb815ba..396d5a3e 100644
 --- b/content/docs/runtime/http/websockets.mdx
 +++ a/content/docs/runtime/http/websockets.mdx
 @@ -92,15 +92,15 @@ Bun.serve({
@@ -2925,7 +2884,7 @@ index 53b05928..7626ec07 100644
  });
  ```
 diff --git b/content/docs/runtime/index.mdx a/content/docs/runtime/index.mdx
-index d763f366..4fd4251c 100644
+index 0618d886..dbf0c460 100644
 --- b/content/docs/runtime/index.mdx
 +++ a/content/docs/runtime/index.mdx
 @@ -64,7 +64,7 @@ Flags that occur at the end of the command will be ignored and passed through to
@@ -2953,7 +2912,7 @@ index 684a7d12..b0d5d2f5 100644
  
  Bun includes a fast, built-in Markdown parser written in Zig. It supports GitHub Flavored Markdown (GFM) extensions and provides three APIs:
 diff --git b/content/docs/runtime/networking/fetch.mdx a/content/docs/runtime/networking/fetch.mdx
-index 361bdf26..31ec32b8 100644
+index 0525926b..1116e0d6 100644
 --- b/content/docs/runtime/networking/fetch.mdx
 +++ a/content/docs/runtime/networking/fetch.mdx
 @@ -358,7 +358,7 @@ This will print the request and response headers to your terminal:
@@ -2966,7 +2925,7 @@ index 361bdf26..31ec32b8 100644
  [fetch] > Host: example.com
  [fetch] > Accept-Encoding: gzip, deflate, br, zstd
 diff --git b/content/docs/runtime/plugins.mdx a/content/docs/runtime/plugins.mdx
-index cfb373f5..3ed2c083 100644
+index 747ff123..16d2f508 100644
 --- b/content/docs/runtime/plugins.mdx
 +++ a/content/docs/runtime/plugins.mdx
 @@ -330,7 +330,7 @@ To create a native plugin, you must export a C ABI function which matches the si
@@ -2979,7 +2938,7 @@ index cfb373f5..3ed2c083 100644
  
  Then install this crate:
 diff --git b/content/docs/runtime/sql.mdx a/content/docs/runtime/sql.mdx
-index 743ad9bc..341c8d1e 100644
+index 75841232..7360ec11 100644
 --- b/content/docs/runtime/sql.mdx
 +++ a/content/docs/runtime/sql.mdx
 @@ -524,11 +524,11 @@ MySQL connections can be configured via environment variables:
@@ -3011,7 +2970,7 @@ index 743ad9bc..341c8d1e 100644
  
  **Note:** PostgreSQL-specific environment variables (`POSTGRES_URL`, `PGHOST`, etc.) are ignored when using SQLite.
 diff --git b/content/docs/runtime/sqlite.mdx a/content/docs/runtime/sqlite.mdx
-index a03c0d28..023b253a 100644
+index 02bb47d3..8ff91bb9 100644
 --- b/content/docs/runtime/sqlite.mdx
 +++ a/content/docs/runtime/sqlite.mdx
 @@ -10,11 +10,7 @@ import { Database } from "bun:sqlite";
@@ -3026,7 +2985,7 @@ index a03c0d28..023b253a 100644
 +query.get(); // => { message: "Hello world" }
  ```
  
- The API is simple, synchronous, and fast. Credit to [better-sqlite3](https://github.com/JoshuaWise/better-sqlite3) and its contributors for inspiring the API of `bun:sqlite`.
+ The API is synchronous and fast. Credit to [better-sqlite3](https://github.com/JoshuaWise/better-sqlite3) and its contributors for inspiring the API of `bun:sqlite`.
 @@ -143,14 +139,10 @@ import { Database } from "bun:sqlite";
  {
    using db = new Database("mydb.sqlite"); // [!code highlight]
@@ -3190,7 +3149,7 @@ index a03c0d28..023b253a 100644
  
  To point `bun:sqlite` to the new build, call `Database.setCustomSQLite(path)` before creating any `Database` instances. (On other operating systems, this is a no-op.) Pass a path to the SQLite `.dylib` file, _not_ the executable. With recent versions of Homebrew this is something like `/opt/homebrew/Cellar/sqlite/<version>/libsqlite3.dylib`.
 diff --git b/content/docs/runtime/streams.mdx a/content/docs/runtime/streams.mdx
-index 062e325f..4bc91b3b 100644
+index a829e58a..74129f2b 100644
 --- b/content/docs/runtime/streams.mdx
 +++ a/content/docs/runtime/streams.mdx
 @@ -195,7 +195,7 @@ sink.start({
@@ -3203,10 +3162,10 @@ index 062e325f..4bc91b3b 100644
   * Fast incremental writer that becomes an `ArrayBuffer` on end().
   */
 diff --git b/content/docs/runtime/templating/create.mdx a/content/docs/runtime/templating/create.mdx
-index 15737f8e..25cad0d3 100644
+index 4259a1a8..9edd678f 100644
 --- b/content/docs/runtime/templating/create.mdx
 +++ a/content/docs/runtime/templating/create.mdx
-@@ -81,7 +81,7 @@ plugins = ["bun-plugin-tailwind"]
+@@ -80,7 +80,7 @@ plugins = ["bun-plugin-tailwind"]
  
  And a `${component}.css` file with `@import "tailwindcss";` at the top:
  
@@ -3215,7 +3174,7 @@ index 15737f8e..25cad0d3 100644
  @import "tailwindcss";
  ```
  
-@@ -231,7 +231,7 @@ After cloning a template, `bun create` will automatically remove the `"bun-creat
+@@ -230,7 +230,7 @@ After cloning a template, `bun create` will automatically remove the `"bun-creat
  | `GITHUB_TOKEN` (or `GITHUB_ACCESS_TOKEN`) | This lets `bun create` work with private repositories or if you get rate-limited. `GITHUB_TOKEN` is chosen over `GITHUB_ACCESS_TOKEN` if both exist. |
  
  <Accordions type="single">
@@ -3259,7 +3218,7 @@ index e5e941fd..5eff589b 100644
  
  interface TranspilerOptions {
 diff --git b/content/docs/runtime/utils.mdx a/content/docs/runtime/utils.mdx
-index 8e0ee46a..7340345f 100644
+index 9cab968f..8e37e420 100644
 --- b/content/docs/runtime/utils.mdx
 +++ a/content/docs/runtime/utils.mdx
 @@ -9,7 +9,7 @@ A `string` containing the version of the `bun` CLI that is currently running.
@@ -3271,7 +3230,7 @@ index 8e0ee46a..7340345f 100644
  ```
  
  ## `Bun.revision`
-@@ -333,8 +333,8 @@ existing code can be easily ported to Bun and vice versa.
+@@ -333,8 +333,8 @@ existing code can be ported to Bun and vice versa.
  
  [In this benchmark](https://github.com/oven-sh/bun/blob/5147c0ba7379d85d4d1ed0714b84d6544af917eb/bench/snippets/string-width.mjs#L13), `Bun.stringWidth` is a ~6,756x faster than the `string-width` npm package for input larger than about 500 characters. Big thanks to [sindresorhus](https://github.com/sindresorhus) for their work on `string-width`!
  
@@ -3292,7 +3251,7 @@ index 8e0ee46a..7340345f 100644
  benchmark                                          time (avg)             (min … max)       p75       p99      p995
  ------------------------------------------------------------------------------------- -----------------------------
  npm/string-width    500 chars ascii             249,710 ns/iter (239,970 ns … 293,180 ns) 250,930 ns  276,700 ns 281,450 ns
-@@ -363,7 +362,7 @@ As a reminder, 1 nanosecond (ns) is 1 billionth of a second. Here's a quick refe
+@@ -363,7 +362,7 @@ As a reminder, 1 nanosecond (ns) is 1 billionth of a second. Here's a reference
  | ms   | 1             |
  
  ```bash title="terminal"
@@ -3311,7 +3270,7 @@ index 8e0ee46a..7340345f 100644
  runtime: node v21.4.0 (x64-linux)
  
 diff --git b/content/docs/runtime/watch-mode.mdx a/content/docs/runtime/watch-mode.mdx
-index b7dcc140..99c95602 100644
+index 99d7f89c..4d2061ae 100644
 --- b/content/docs/runtime/watch-mode.mdx
 +++ a/content/docs/runtime/watch-mode.mdx
 @@ -117,8 +117,6 @@ If you run this file with `bun --hot server.ts`, you'll see the reload count inc
@@ -3384,7 +3343,7 @@ index 39c9da13..1a22d4c8 100644
  ---
  
 diff --git b/content/docs/test/runtime-behavior.mdx a/content/docs/test/runtime-behavior.mdx
-index 709c7de2..a0dc0080 100644
+index 66ae01c0..23ca3a86 100644
 --- b/content/docs/test/runtime-behavior.mdx
 +++ a/content/docs/test/runtime-behavior.mdx
 @@ -275,10 +275,10 @@ The test runner properly handles common signals:
@@ -3570,7 +3529,7 @@ index fffc4c51..fd6ee486 100644
  
      	[See the Vercel Bun Runtime documentation for feature support →](https://vercel.com/docs/functions/runtimes/bun#feature-support)
 diff --git b/content/guides/ecosystem/gel.mdx a/content/guides/ecosystem/gel.mdx
-index e8444be5..6ac23bf4 100644
+index ec0be932..eccdde29 100644
 --- b/content/guides/ecosystem/gel.mdx
 +++ a/content/guides/ecosystem/gel.mdx
 @@ -14,8 +14,8 @@ First, [install Gel](https://docs.geldata.com/learn/installation) if you haven't
@@ -3594,7 +3553,7 @@ index e8444be5..6ac23bf4 100644
  No `gel.toml` found in `/Users/colinmcd94/Documents/bun/fun/examples/my-gel-app` or above
  Do you want to initialize a new project? [Y/n]
 @@ -68,7 +68,7 @@ To connect to my_gel_app, run `gel`
- To see if the database is running, let's open a REPL and run a simple query.
+ To see if the database is running, let's open a REPL and run a query.
  
  ```sh title="terminal"
 -gel
@@ -3688,7 +3647,7 @@ index 95481525..5429f19f 100644
  Nuxt 3.6.5 with Nitro 2.5.2
    > Local:    http://localhost:3000/
 diff --git b/content/guides/ecosystem/pm2.mdx a/content/guides/ecosystem/pm2.mdx
-index df71e875..fb73b918 100644
+index 74c23676..d7a9bb29 100644
 --- b/content/guides/ecosystem/pm2.mdx
 +++ a/content/guides/ecosystem/pm2.mdx
 @@ -22,7 +22,7 @@ You can use PM2 with Bun in two ways: as a CLI option or in a configuration file
@@ -3710,7 +3669,7 @@ index df71e875..fb73b918 100644
  
  ---
 diff --git b/content/guides/ecosystem/prisma.mdx a/content/guides/ecosystem/prisma.mdx
-index e2f83e55..3cb7c4a5 100644
+index e0fffed5..e5911907 100644
 --- b/content/guides/ecosystem/prisma.mdx
 +++ a/content/guides/ecosystem/prisma.mdx
 @@ -1,7 +1,6 @@
@@ -4031,7 +3990,7 @@ index 107c894c..07a4fff2 100644
 +
 +<GuidesCategory category="websocket" />
 diff --git b/content/guides/install/from-npm-install-to-bun-install.mdx a/content/guides/install/from-npm-install-to-bun-install.mdx
-index d16182c8..c41d0f5b 100644
+index 5fd41dd1..372dc4de 100644
 --- b/content/guides/install/from-npm-install-to-bun-install.mdx
 +++ a/content/guides/install/from-npm-install-to-bun-install.mdx
 @@ -48,7 +48,8 @@ $ bun my-script
