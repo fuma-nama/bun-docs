@@ -2489,7 +2489,7 @@ index 53b22b91..71f9732b 100644
  
  ## Troubleshooting
 diff --git b/content/docs/project/contributing.mdx a/content/docs/project/contributing.mdx
-index 79f8ed5d..b9df6728 100644
+index 3bce6928..693eae2b 100644
 --- b/content/docs/project/contributing.mdx
 +++ a/content/docs/project/contributing.mdx
 @@ -12,7 +12,7 @@ If you are using Windows, please refer to [this guide](/docs/project/building-wi
@@ -2519,7 +2519,7 @@ index 79f8ed5d..b9df6728 100644
  x.y.z_debug
  ```
  
-@@ -330,7 +330,7 @@ $ brew install pkg-config
+@@ -344,7 +344,7 @@ $ brew install pkg-config
  If you see this error when compiling, run:
  
  ```bash
