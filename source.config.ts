@@ -5,7 +5,7 @@ import {
   metaSchema,
   defineCollections,
 } from "fumadocs-mdx/config";
-import { rehypeCodeDefaultOptions } from "fumadocs-core/mdx-plugins";
+import { rehypeCodeDefaultOptions } from "fumadocs-core/mdx-plugins/rehype-code";
 import { z } from "zod";
 import { readdirSync, readFileSync, rmSync } from "node:fs";
 import { join } from "node:path";
@@ -75,7 +75,10 @@ BUN_VERSION ||= "1.3.0";
 try {
   for (const entry of readdirSync(".next/cache/fumadocs")) {
     if (entry !== `bun-${BUN_VERSION}`) {
-      rmSync(join(".next/cache/fumadocs", entry), { recursive: true, force: true });
+      rmSync(join(".next/cache/fumadocs", entry), {
+        recursive: true,
+        force: true,
+      });
     }
   }
 } catch {}
@@ -103,7 +106,7 @@ export default defineConfig({
           if (typeof tree.value === "string") {
             tree.value = tree.value.replaceAll(
               "$BUN_LATEST_VERSION",
-              BUN_VERSION
+              BUN_VERSION,
             );
           }
           if (tree.children && tree.children.length > 0) {
@@ -114,6 +117,7 @@ export default defineConfig({
       },
     ],
     rehypeCodeOptions: {
+      lazy: true,
       // theme: "dracula",
       // themes: {
       //   dark: "dracula",
@@ -122,11 +126,6 @@ export default defineConfig({
       themes: {
         light: "github-light",
         dark: "github-dark",
-      },
-      langAlias: {
-        env: "ini",
-        zsh: "shellscript",
-        // css: "scss",
       },
       icon: {
         // https://github.com/fuma-nama/fumadocs/blob/main/packages/core/src/mdx-plugins/transformer-icon.ts
@@ -179,7 +178,14 @@ export default defineConfig({
             const lines = this.source.split("\n");
             const [, prefix] =
               sh.find(([lang, prefix]) => lang === this.options.lang) ?? [];
-            if (!prefix || !lines.some((line) => line.startsWith(prefix + " ") || line.startsWith("\\" + prefix + " ")))
+            if (
+              !prefix ||
+              !lines.some(
+                (line) =>
+                  line.startsWith(prefix + " ") ||
+                  line.startsWith("\\" + prefix + " "),
+              )
+            )
               return hast;
 
             const children = hast.children;
@@ -219,7 +225,7 @@ export default defineConfig({
                   isCommand = false;
                   continue;
                 }
-                
+
                 isCommand = c.value === prefix || c.value === prefix + " ";
                 if (isCommand)
                   this.addClassToHast(child, [

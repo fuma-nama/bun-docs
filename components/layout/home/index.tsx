@@ -1,12 +1,11 @@
-import { Fragment, type HTMLAttributes, useMemo } from 'react';
-import { cn } from '../../../lib/cn';
+import { Fragment, type HTMLAttributes, useMemo } from "react";
+import { cn } from "../../../lib/cn";
 import {
   type BaseLayoutProps,
   getLinks,
   type LinkItemType,
   type NavOptions,
-} from '../shared/index';
-import { NavProvider } from 'fumadocs-ui/contexts/layout';
+} from "../shared/index";
 import {
   Navbar,
   NavbarLink,
@@ -14,25 +13,14 @@ import {
   NavbarMenuContent,
   NavbarMenuLink,
   NavbarMenuTrigger,
-} from './navbar';
-import {
-  LargeSearchToggle,
-  SearchToggle,
-} from '../../search-toggle';
-import { ThemeToggle } from '../../theme-toggle';
-import {
-  LanguageToggle,
-  LanguageToggleText,
-} from '../../language-toggle';
-import { ChevronDown, DownloadIcon, Languages } from 'lucide-react';
-import Link from 'fumadocs-core/link';
-import {
-  Menu,
-  MenuContent,
-  MenuLinkItem,
-  MenuTrigger,
-} from './menu';
-import { buttonVariants } from '../../ui/button';
+} from "./navbar";
+import { LargeSearchToggle, SearchToggle } from "../../search-toggle";
+import { ThemeToggle } from "../../theme-toggle";
+import { LanguageToggle, LanguageToggleText } from "../../language-toggle";
+import { ChevronDown, DownloadIcon, Languages } from "lucide-react";
+import Link from "fumadocs-core/link";
+import { Menu, MenuContent, MenuLinkItem, MenuTrigger } from "./menu";
+import { buttonVariants } from "../../ui/button";
 
 export interface HomeLayoutProps extends BaseLayoutProps {
   nav?: Partial<
@@ -59,29 +47,29 @@ export function HomeLayout(
   } = props;
 
   return (
-    <NavProvider transparentMode={nav?.transparentMode}>
-      <main
-        id="nd-home-layout"
-        {...rest}
-        className={cn('flex flex-1 flex-col pt-14', rest.className)}
-        style={{
+    <main
+      id="nd-home-layout"
+      {...rest}
+      className={cn("flex flex-1 flex-col pt-14", rest.className)}
+      style={
+        {
           "--fd-nav-height": "3.5rem",
-        } as React.CSSProperties}
-      >
-        {nav.enabled !== false &&
-          (nav.component ?? (
-            <Header
-              links={links}
-              nav={nav}
-              themeSwitch={themeSwitch}
-              searchToggle={searchToggle}
-              i18n={i18n}
-              githubUrl={githubUrl}
-            />
-          ))}
-        {props.children}
-      </main>
-    </NavProvider>
+        } as React.CSSProperties
+      }
+    >
+      {nav.enabled !== false &&
+        (nav.component ?? (
+          <Header
+            links={links}
+            nav={nav}
+            themeSwitch={themeSwitch}
+            searchToggle={searchToggle}
+            i18n={i18n}
+            githubUrl={githubUrl}
+          />
+        ))}
+      {props.children}
+    </main>
   );
 }
 
@@ -99,16 +87,16 @@ export function Header({
   );
 
   const navItems = finalLinks.filter((item) =>
-    ['nav', 'all'].includes(item.on ?? 'all'),
+    ["nav", "all"].includes(item.on ?? "all"),
   );
   const menuItems = finalLinks.filter((item) =>
-    ['menu', 'all'].includes(item.on ?? 'all'),
+    ["menu", "all"].includes(item.on ?? "all"),
   );
 
   return (
     <Navbar>
       <Link
-        href={nav.url ?? '/'}
+        href={nav.url ?? "/"}
         className="inline-flex items-center gap-2.5 font-semibold"
       >
         {nav.title}
@@ -137,9 +125,12 @@ export function Header({
           </LanguageToggle>
         ) : null}
         <div className="flex flex-row items-center empty:hidden gap-2">
-          {navItems.reverse().filter(isSecondary).map((item, i) => (
-            <NavbarLinkItem key={i} item={item} />
-          ))}
+          {navItems
+            .reverse()
+            .filter(isSecondary)
+            .map((item, i) => (
+              <NavbarLinkItem key={i} item={item} />
+            ))}
 
           {themeSwitch.enabled !== false &&
             (themeSwitch.component ?? <ThemeToggle mode={themeSwitch?.mode} />)}
@@ -155,9 +146,9 @@ export function Header({
             aria-label="Toggle Menu"
             className={cn(
               buttonVariants({
-                size: 'icon',
-                color: 'ghost',
-                className: 'group',
+                size: "icon",
+                color: "ghost",
+                className: "group",
               }),
             )}
             enableHover={nav.enableHoverToOpen}
@@ -190,7 +181,10 @@ export function Header({
           </MenuContent>
         </Menu>
       </ul>
-      <Link href='/docs/installation' className='ms-2 flex flex-row items-center gap-2 rounded-lg py-1.5 px-2 text-sm tracking-wider text-nowrap self-center text-start [&_svg]:size-4 [&_svg]:shrink-0 bg-fd-primary/10 hover:bg-fd-primary/15 text-fd-primary'>
+      <Link
+        href="/docs/installation"
+        className="ms-2 flex flex-row items-center gap-2 rounded-lg py-1.5 px-2 text-sm tracking-wider text-nowrap self-center text-start [&_svg]:size-4 [&_svg]:shrink-0 bg-fd-primary/10 hover:bg-fd-primary/15 text-fd-primary"
+      >
         <DownloadIcon className="size-4" />
         Install Bun
       </Link>
@@ -205,11 +199,11 @@ function NavbarLinkItem({
   item: LinkItemType;
   className?: string;
 }) {
-  if (item.type === 'custom') return <div {...props}>{item.children}</div>;
+  if (item.type === "custom") return <div {...props}>{item.children}</div>;
 
-  if (item.type === 'menu') {
+  if (item.type === "menu") {
     const children = item.items.map((child, j) => {
-      if (child.type === 'custom') {
+      if (child.type === "custom") {
         return <Fragment key={j}>{child.children}</Fragment>;
       }
 
@@ -263,20 +257,24 @@ function NavbarLinkItem({
       {...props}
       item={item}
       variant={item.type}
-      aria-label={item.type === 'icon' ? item.label : undefined}
+      aria-label={item.type === "icon" ? item.label : undefined}
     >
-      {item.type === 'icon' ? (
-
-        <span className='group gap-2 flex'>
-          {item.icon} <span className='text-fd-muted-foreground group-hover:text-fd-accent-foreground transition-colors duration-100'>{item.text}</span>
+      {item.type === "icon" ? (
+        <span className="group gap-2 flex">
+          {item.icon}{" "}
+          <span className="text-fd-muted-foreground group-hover:text-fd-accent-foreground transition-colors duration-100">
+            {item.text}
+          </span>
         </span>
-      ) : item.text}
+      ) : (
+        item.text
+      )}
     </NavbarLink>
   );
 }
 
 function isSecondary(item: LinkItemType): boolean {
-  if ('secondary' in item && item.secondary != null) return item.secondary;
+  if ("secondary" in item && item.secondary != null) return item.secondary;
 
-  return item.type === 'icon';
+  return item.type === "icon";
 }
